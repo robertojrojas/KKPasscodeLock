@@ -226,6 +226,10 @@
 - (void)cancelButtonPressed:(id)sender
 {
 	[self dismissModalViewControllerAnimated:YES];
+    
+    if ([_delegate respondsToSelector:@selector(cancelButtonPressed:)]) {
+        [_delegate performSelector:@selector(cancelButtonPressed:) withObject:self];
+    }
 }
 
 
